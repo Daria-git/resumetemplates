@@ -17,6 +17,7 @@ import static org.springframework.data.mongodb.core.query.Query.query;
 
 
 public class MongoImpl implements Database {
+
     private static final Log log = LogFactory.getLog(MongoImpl.class);
     static MongoOperations mongoOps = new MongoTemplate(MongoClients.create(), "database");
 

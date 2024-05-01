@@ -12,7 +12,6 @@ public class MySqlImpl implements Database {
         return statement;
     }
 
-
     public static Connection getNewConnection() {
         String url = "jdbc:mysql://localhost:3306/users?useUnicode=true&serverTimezone=UTC";
         String user = "root";

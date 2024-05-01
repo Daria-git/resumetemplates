@@ -14,6 +14,7 @@ import static org.junit.Assert.assertTrue;
 public class MySqlConnectionTest {
     private static Connection connection;
 
+
     @Before
     public void init() throws SQLException {
         connection = MySqlImpl.getNewConnection();

@@ -5,8 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
 public class ValidationTest {
-
-
+    
     @Test
     public void isValidPasswordShouldReturnFalseIfSEvenLength() {
         assertEquals(false, Validation.isValidPassword("5468732"), "Password must be more seven symbols");

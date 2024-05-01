@@ -11,7 +11,6 @@ public class SecurityTest {
 
     Security security = new Security(new MongoImpl());
 
-
     @Test
     public void signInShouldReturnYouSignIn() throws Exception {
         User user = new User("ivanova512@gmail.com", "Ivanova512");

@@ -2,7 +2,8 @@
 <html>
 <head>
     <title>Create resume</title>
-    <script src="https://unpkg.com/vue"></script>
+    <script src="https://unpkg.com/vue@2/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue-router@3/dist/vue-router.js"></script>
     <script src="anime.min.js"></script>
     <style>
         @import url('https://fonts.googleapis.com/css?family=Roboto:100,300,400');
@@ -209,7 +210,8 @@
         .main-nav {
             display: flex;
             justify-content: space-between;
-            padding: 0.5rem 0.8rem;
+            padding: 4rem 0.8rem;
+            pading-left: 23rem;
         }
 
         ul.sidebar-panel-nav {
@@ -221,7 +223,8 @@
             text-decoration: none;
             font-size: 1.5rem;
             display: block;
-            padding-bottom: 0.5em;
+            padding-bottom: 1em;
+            padding-right: 5em;
         }
 
         .hidden {
@@ -329,11 +332,12 @@
             background-color: #1E90FF;
             position: fixed;
             left: 0;
-            top: 0;
+            top: 75px;
             height: 100vh;
-            z-index: 999;
+            1 z-index: 999;
             padding: 3rem 20px 2rem 20px;
             width: 300px;
+
         }
 
         @import url('https://fonts.googleapis.com/css?family=Lato:100&display=swap');
@@ -412,102 +416,50 @@
         </div>
         <Burger></Burger>
     </nav>
-    <Sidebar>
-        <ul class="sidebar-panel-nav">
-            <li><a href="SignIn.html">Sign In</a></li>
-            <li><a href="SignIn.html">Sign Up</a></li>
-        </ul>
-    </Sidebar>
-</div>
-<template id="sidebar">
-    <div class="sidebar">
-        <div class="sidebar-backdrop" @click="closeSidebarPanel" v-if="isPanelOpen"></div>
-        <transition name="slide">
-            <div v-if="isPanelOpen"
-                 class="sidebar-panel">
-                <slot></slot>
-            </div>
-        </transition>
-    </div>
-</template>
-<template id="burger">
-    <div id="burger"
-         :class="{ 'active' : isBurgerActive }"
-         @click.prevent="toggle">
-        <slot>
-            <button type="button" class="burger-button" title="Menu">
-                <span class="hidden">Toggle menu</span>
-                <span class="burger-bar burger-bar--1"></span>
-                <span class="burger-bar burger-bar--2"></span>
-                <span class="burger-bar burger-bar--3"></span>
-            </button>
-        </slot>
-    </div>
-</template>
-<h1>Create for Everyone</h1>
-<div class="dropping-texts" style="margin-bottom:-125px">
-    <div>Original</div>
-    <div>Creative</div>
-    <div>Beautiful</div>
-    <div>Resume!</div>
-</div>
-<div class="wrap">
-    <div class="container">
-        <div class="center">
-            <button class="btn">
-                <svg width="180px" height="60px" viewBox="0 0 180 60" class="border">
-                    <polyline points="179,1 179,59 1,59 1,1 179,1" class="bg-line"/>
-                    <polyline points="179,1 179,59 1,59 1,1 179,1" class="hl-line"/>
-                </svg>
-                <span>Create Resume</span>
-            </button>
+    <template id="burger">
+        <div id="burger"
+             :class="{ 'active' : isBurgerActive }"
+             @click.prevent="toggle">
+            <slot>
+                <button type="button" class="burger-button" title="Menu">
+                    <span class="hidden">Toggle menu</span>
+                    <span class="burger-bar burger-bar--1"></span>
+                    <span class="burger-bar burger-bar--2"></span>
+                    <span class="burger-bar burger-bar--3"></span>
+                </button>
+            </slot>
         </div>
+    </template>
+    <h1>Create for Everyone</h1>
+    <div class="dropping-texts" style="margin-bottom:-135px">
+        <div>Original</div>
+        <div>Creative</div>
+        <div>Beautiful</div>
+        <div>Resume!</div>
     </div>
-</div>
-<script>
-    const store = Vue.observable({
-        isNavOpen: false
-    });
-
-    const mutations = {
-        setIsNavOpen(yesno) {
-            store.isNavOpen = yesno;
-        },
-        toggleNav() {
-            store.isNavOpen = !store.isNavOpen;
-        }
-    };
-
-
-    Vue.component('sidebar', {
-        template: '#sidebar',
-        methods: {
-            closeSidebarPanel: mutations.toggleNav
-        },
-        computed: {
-            isPanelOpen() {
-                return store.isNavOpen
-            }
-        }
-    });
-
-    Vue.component('burger', {
-        template: '#burger',
-        computed: {
-            isBurgerActive() {
-                return store.isNavOpen
-            }
-        },
-        methods: {
-            toggle() {
-                mutations.toggleNav()
-            }
-        }
-    });
-
-    new Vue({
-        el: '#app'
-    })
-</script>
+    <div id="app">
+        <nav class="main-nav">
+            <div class="logo">
+            </div>
+            <Burger></Burger>
+        </nav>
+        <Sidebar>
+            <ul class="sidebar-panel-nav">
+                <li><a href="file:///C:/Users/Daria/IdeaProjects/resumetemplates/src/main/FrontEnd/SignIn.html">Sign
+                    In</a></li>
+            </ul>
+        </Sidebar>
+    </div>
+    <template id="sidebar">
+        <div class="sidebar">
+            <div class="sidebar-backdrop" @click="closeSidebarPanel" v-if="isPanelOpen"></div>
+            <transition name="slide">
+                <div v-if="isPanelOpen"
+                     class="sidebar-panel">
+                    <slot></slot>
+                </div>
+            </transition>
+        </div>
+    </template>
 </body>
 </html>

@@ -7,7 +7,7 @@ $(document).on("click", "#btn", function () {
                 var login = $("#email").val();
                 $.ajax({
                     type: 'POST',
-                    url: "http://localhost:8088/SignIn",
+                    url: "http://localhost:8082/SignIn",
                     data: {
                         "login": login,
                         "password": password
@@ -30,7 +30,7 @@ $(document).on("click", "#btn", function () {
                 var login = $("#email").val();
                 $.ajax({
                     type: 'POST',
-                    url: "http://localhost:8088/SignUp",
+                    url: "http://localhost:8082/SignUp",
                     data: {
                         "login": login,
                         "password": password,
@@ -52,7 +52,7 @@ $(document).on("click", "#btn", function () {
                 var login = $("#email").val();
                 $.ajax({
                     type: 'POST',
-                    url: "http://localhost:8088/Resetpassword",
+                    url: "http://localhost:8082/Resetpassword",
                     data: {
                         "login": login
 
@@ -70,5 +70,4 @@ $(document).on("click", "#btn", function () {
             }
         }
     }
-
 });

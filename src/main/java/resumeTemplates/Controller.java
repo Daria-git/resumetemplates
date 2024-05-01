@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class Controller {
     Security security = new Security(Application.database);
 
+
     @RequestMapping(value = "/Resetpassword", method = RequestMethod.POST)
     public String resetPassword(@RequestParam(value = "login") String login) throws Exception {
         if (!Validation.validationSendEmail(login)) throw new Exception("Your email invalid");

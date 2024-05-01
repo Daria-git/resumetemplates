@@ -11,6 +11,7 @@ import java.util.Properties;
 
 
 public class Security {
+
     private static final Log log = LogFactory.getLog(Security.class);
     Database database;
 

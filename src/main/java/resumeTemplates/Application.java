@@ -10,6 +10,7 @@ import resumeTemplates.database.MySqlImpl;
 public class Application {
     public static Database database;
 
+
     public static void main(String[] args) throws Exception {
         database = new MySqlImpl();
        /* database = new MongoImpl();*/

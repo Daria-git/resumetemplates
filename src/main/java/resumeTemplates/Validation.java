@@ -15,5 +15,4 @@ public class Validation {
     public static boolean isValidPassword(String password) {
         return !(password.length() < PASSWORD_LENGTH);
     }
-
 }
